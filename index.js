@@ -1,6 +1,20 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+
+var bodyParser = require('body-parser')
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
 app.get('/', (req, res) => {
-  res.send('HEY!')
+  res.send('HEY!');
 })
-app.listen(3000, () => console.log('Server running on port 3000'))
+
+app.post('/test-page', function(req, res) {
+    var name = req.body.name,
+        color = req.body.color;
+    console.log("WHOA");
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
