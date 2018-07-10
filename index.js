@@ -17,6 +17,7 @@ app.post('/test-page', function(req, res) {
     var name = req.body.name,
         color = req.body.color;
     console.log("WHOA");
+    res.sendStatus(200);
 });
 
 app.listen(3000, () => console.log('Server running on port 3000'));
