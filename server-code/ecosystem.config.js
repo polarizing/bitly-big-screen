@@ -10,7 +10,7 @@ module.exports = {
       key: '~/.ssh/key.pem',
       ref: 'origin/master',
       repo: 'git@github.com:polarizing/bitly-big-screen.git',
-      path: '/home/ec2-user/bitly-big-screen',
+      path: '/home/ec2-user/bitly-big-screen/server-code',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }
