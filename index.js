@@ -23,6 +23,8 @@ app.ws('/', function(ws, req) {
 })
 
 app.post('/gif', function(req, res) {
+    console.log(req);
+    console.log(req.body);
     var gif_link = req.body.link;
     console.log("Request to play a GIF: " + gif_link);
     expressWs.getWss().clients.forEach(client => client.send(gif_link));  
@@ -36,13 +38,12 @@ app.post('/gif', function(req, res) {
             }
         ]
     })
-
 })
 
 app.post('/change', function(req, res) {
     // var name = req.body.name,
         // color = req.body.color;
-    console.log("Got a request!");
+    console.log("Request to change state of big screen");
     // res.sendStatus(200);
     // ws.send('update');
     expressWs.getWss().clients.forEach(client => client.send("update"));  
