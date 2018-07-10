@@ -17,7 +17,7 @@ app.use(express.static('public'))
 app.ws('/', function(ws, req) {
 	ws.on('message', function(msg) {
 		console.log(msg);
-        ws.send('something');
+        ws.send('update');
 	})
 	console.log('socket', req.testing);
 })
