@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const expressWs = require('express-ws')(app);
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());       // to support JSON-encoded bodies
@@ -13,6 +14,13 @@ app.use(express.static('public'))
 //   res.send('HEY!');
 // })
 
+app.ws('/', function(ws, req) {
+	ws.on('message', function(msg) {
+		console.log(msg);
+	})
+	console.log('socket', req.testing);
+})
+
 app.post('/test-page', function(req, res) {
     var name = req.body.name,
         color = req.body.color;
@@ -20,10 +28,10 @@ app.post('/test-page', function(req, res) {
     // res.sendStatus(200);
     res.json({
     	"response_type": "in_channel",
-    	"text": "It's 80 degrees right now.",
+    	"text": "Changing big screen.",
     	"attachments": [
 	        {
-	            "text":"Partly cloudy today and tomorrow"
+	            "text":"Changing!"
 	        }
     	]
     })

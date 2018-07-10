@@ -20,7 +20,8 @@
   "homepage": "https://github.com/polarizing/bitly-big-screen#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "express-ws": "^4.0.0"
   },
   "devDependencies": {
     "pm2": "^3.0.0"
