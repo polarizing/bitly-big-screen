@@ -27,7 +27,8 @@ app.post('/change', function(req, res) {
         // color = req.body.color;
     console.log("Got a request!");
     // res.sendStatus(200);
-    ws.send('update');
+    // ws.send('update');
+    expressWs.getWss().clients.forEach(client => client.send("update"));  
 
     res.json({
     	"response_type": "in_channel",
