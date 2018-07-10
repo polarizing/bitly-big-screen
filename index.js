@@ -23,9 +23,9 @@ app.ws('/', function(ws, req) {
 })
 
 app.post('/gif', function(req, res) {
-    console.log(req);
-    console.log(req.body);
-    var gif_link = req.body.link;
+    // console.log(req);
+    // console.log(req.body);
+    var gif_link = req.body.text;
     console.log("Request to play a GIF: " + gif_link);
     expressWs.getWss().clients.forEach(client => client.send(gif_link));  
 
