@@ -22,6 +22,23 @@ app.ws('/', function(ws, req) {
 	console.log('socket', req.testing);
 })
 
+app.post('/gif', function(req, res) {
+    var gif_link = req.body.link;
+    console.log("Request to play a GIF: " + gif_link);
+    expressWs.getWss().clients.forEach(client => client.send(gif_link));  
+
+    res.json({
+        "response_type": "in_channel",
+        "text": "Playing GIF link for 10 seconds ...",
+        "attachments": [
+            {
+                "text": gif_link
+            }
+        ]
+    })
+
+})
+
 app.post('/change', function(req, res) {
     // var name = req.body.name,
         // color = req.body.color;
