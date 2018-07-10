@@ -7,9 +7,11 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 
-app.get('/', (req, res) => {
-  res.send('HEY!');
-})
+app.use(express.static('public'))
+
+// app.get('/', (req, res) => {
+//   res.send('HEY!');
+// })
 
 app.post('/test-page', function(req, res) {
     var name = req.body.name,
